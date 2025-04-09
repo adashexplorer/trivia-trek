@@ -132,7 +132,7 @@ const Homepage = () => {
             alt={testimonials[testimonialIndex].name}
             className="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-indigo-400"
           />
-          <p className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-2">"{testimonials[testimonialIndex].text}"</p>
+          <p className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-2">&quot;{testimonials[testimonialIndex].text}&quot;</p>
           <p className="font-semibold text-indigo-700">{testimonials[testimonialIndex].name}</p>
         </motion.div>
       </section>
