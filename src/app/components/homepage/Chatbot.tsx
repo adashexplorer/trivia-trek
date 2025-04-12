@@ -203,7 +203,7 @@ const Chatbot = () => {
                       onKeyDown={(e) => e.key === "Enter" && handleUserMessage()}
                     />
                     <button
-                      onClick={handleUserMessage}
+                        onClick={() => handleUserMessage()}
                       className="bg-indigo-600 text-white px-3 py-1 rounded text-sm hover:bg-indigo-700"
                     >
                       Send
