@@ -1,7 +1,8 @@
-// components/homepage/Newsletter.tsx
 "use client";
 
 import React from 'react';
+import { motion } from 'framer-motion';
+import { NewsLetterStyles } from '@/app/styles/homepage/NewsLetter.styles';
 
 interface NewsletterProps {
   email: string;
@@ -17,12 +18,22 @@ const Newsletter: React.FC<NewsletterProps> = ({
   handleSubscribe,
 }) => {
   const isValidEmail = email.includes('@');
+  const isSuccess = message.toLowerCase().includes("thank");
 
   return (
-    <section className="mb-12 max-w-md mx-auto text-center">
-      <h2 className="text-2xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+    <motion.section
+      className={NewsLetterStyles.container}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2 className={NewsLetterStyles.heading}>Subscribe to Our Newsletter</h2>
 
-      <div className="flex flex-col sm:flex-row items-center gap-2">
+      <p className={NewsLetterStyles.description}>
+        Get the latest trivia challenges, tips, and updates directly to your inbox!
+      </p>
+
+      <div className={NewsLetterStyles.inputGroup}>
         <label htmlFor="newsletter-email" className="sr-only">
           Email address
         </label>
@@ -32,22 +43,24 @@ const Newsletter: React.FC<NewsletterProps> = ({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className="p-2 border rounded w-full"
+          className={NewsLetterStyles.input}
           aria-label="Enter your email address"
         />
         <button
           onClick={handleSubscribe}
           disabled={!isValidEmail}
-          className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          className={NewsLetterStyles.button}
         >
           Subscribe
         </button>
       </div>
 
       {message && (
-        <p className="mt-2 text-sm text-red-500 dark:text-red-300">{message}</p>
+        <p className={isSuccess ? NewsLetterStyles.messageSuccess : NewsLetterStyles.messageError}>
+          {message}
+        </p>
       )}
-    </section>
+    </motion.section>
   );
 };
 

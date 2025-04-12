@@ -1,10 +1,20 @@
-import React from 'react';
+import React from "react";
+import { HeaderStyles } from "@/app/styles/homepage/Header.styles";
 
 const Header = () => (
-  <header className="text-center mb-12">
-    <h1 className="text-4xl font-bold text-indigo-600">Welcome to TriviaTrek</h1>
-    <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">Your destination for online quizzes and fun challenges!</p>
-  </header>
+    <header className={HeaderStyles.header}>
+        <h1 className={HeaderStyles.title}>
+            Welcome to TriviaTrek
+        </h1>
+        <p className={HeaderStyles.subtitle}>
+            Your destination for online quizzes and fun challenges!
+        </p>
+        <div className={HeaderStyles.buttonWrapper}>
+            <button className={HeaderStyles.button}>
+                Start Exploring
+            </button>
+        </div>
+    </header>
 );
 
 export default Header;
