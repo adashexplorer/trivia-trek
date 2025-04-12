@@ -1,11 +1,12 @@
 // data.js
+import { Quiz } from '@/types/quiz';
 
 export const loginOptions = [
     { title: 'Candidate', login: '/candidate-login', signup: '/candidate-register' },
     { title: 'Organiser', login: '/organiser-login', signup: '/organiser-register' },
   ];
   
-  export const quizzes = [
+  export const quizzes : Quiz[] = [
     { id: '1', title: 'React Basics', category: 'Technology', daysLeft: 3, difficulty: 'Beginner' },
     { id: '2', title: 'History Challenge', category: 'History', daysLeft: 5, difficulty: 'Mid' },
     { id: '3', title: 'Math Marathon', category: 'Mathematics', daysLeft: 2, difficulty: 'Beginner' },
